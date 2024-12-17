@@ -5,6 +5,13 @@ export default {
     extend: {
       colors: {
         "bg-blue": "#6278F7",
+        "light-gray": "#F2F2F2",
+        "cyan-hover": "#95FFD4",
+        "dark-color": "#212121",
+      },
+      fontFamily: {
+        prata: ["Prata", "serif"],
+        montserrat: ["Montserrat", "serif"],
       },
     },
   },
