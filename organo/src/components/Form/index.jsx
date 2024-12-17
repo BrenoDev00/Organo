@@ -1,4 +1,5 @@
 import { TextField } from "../TextField";
+import { Button } from "../Button";
 
 export const Form = (props) => {
   return (
@@ -14,6 +15,9 @@ export const Form = (props) => {
             type="text"
             placeholder="Informe o endereço da imagem"
           />
+          <div className="self-start ">
+            <Button type="submit" title="Criar card" />
+          </div>
         </div>
       </form>
     </section>
