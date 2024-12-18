@@ -1,6 +1,6 @@
 export const Dropdown = (props) => {
   return (
-    <div className="flex flex-col gap-[8px]">
+    <div className="flex flex-col gap-[8px] font-montserrat">
       <label className="font-semibold text-[18px]">{props.label}</label>
 
       <select
