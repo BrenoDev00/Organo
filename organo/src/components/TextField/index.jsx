@@ -7,6 +7,8 @@ export const TextField = (props) => {
         type={props.type}
         placeholder={props.placeholder}
         required={props.required}
+        onInput={(event) => props.onInput(event.target.value)}
+        value={props.value}
       />
     </div>
   );

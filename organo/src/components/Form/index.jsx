@@ -1,10 +1,20 @@
 import { TextField } from "../TextField";
 import { Dropdown } from "../Dropdown";
 import { Button } from "../Button";
+import { useState } from "react";
 
 export const Form = (props) => {
+  const [nameField, setNameField] = useState("");
+  const [positionField, setPositionField] = useState("");
+  const [imageField, setImageField] = useState("");
+  const [teamField, setTeamField] = useState("");
+
   const preventDefault = (event) => {
     event.preventDefault();
+    console.log(nameField);
+    console.log(positionField);
+    console.log(imageField);
+    console.log(teamField);
   };
 
   return (
@@ -21,6 +31,8 @@ export const Form = (props) => {
             label="Nome"
             type="text"
             placeholder="Digite seu nome"
+            value={nameField}
+            onInput={(event) => setNameField(event)}
           />
 
           <TextField
@@ -28,6 +40,8 @@ export const Form = (props) => {
             label="Cargo"
             type="text"
             placeholder="Digite seu cargo"
+            value={positionField}
+            onInput={(event) => setPositionField(event)}
           />
 
           <TextField
@@ -35,11 +49,19 @@ export const Form = (props) => {
             label="Imagem"
             type="text"
             placeholder="Informe o endereço da imagem"
+            value={imageField}
+            onInput={(event) => setImageField(event)}
           />
 
-          <Dropdown required={true} teams={props.teams} label="Time" />
+          <Dropdown
+            required={true}
+            teams={props.teams}
+            label="Time"
+            value={teamField}
+            onChange={(event) => setTeamField(event)}
+          />
 
-          <div className="self-start ">
+          <div className="self-start">
             <Button type="submit" title="Criar card" />
           </div>
         </div>
