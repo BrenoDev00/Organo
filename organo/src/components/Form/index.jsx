@@ -11,7 +11,7 @@ export const Form = (props) => {
     <section className=" mt-[80px] mb-[80px] flex justify-center ">
       <form
         onSubmit={preventDefault}
-        className="bg-light-gray shadow-xl w-[800px] text-dark-color py-[32px] px-[95px] flex flex-col  gap-[44px] rounded-[20px]"
+        className="bg-light-gray shadow-xl w-[800px] text-dark-color py-[32px] px-[80px] flex flex-col  gap-[44px] rounded-[20px]"
       >
         <h1 className="font-prata text-[25px] ">{props.title}</h1>
 

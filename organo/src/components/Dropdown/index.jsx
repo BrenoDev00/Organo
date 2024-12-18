@@ -1,7 +1,7 @@
 export const Dropdown = (props) => {
   return (
     <div className="flex flex-col gap-[8px] font-montserrat">
-      <label className="font-semibold text-[18px]">{props.label}</label>
+      <label className="font-semibold text-[16px]">{props.label}</label>
 
       <select
         required={props.required}
