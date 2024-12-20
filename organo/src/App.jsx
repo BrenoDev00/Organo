@@ -1,5 +1,6 @@
 import { Banner } from "./components/Banner";
 import { Form } from "./components/Form";
+import { Team } from "./components/Team";
 
 function App() {
   const teams = [
@@ -47,6 +48,14 @@ function App() {
         title="Preencha os dados para criar o card do colaborador."
         teams={teams.map((team) => team.name)}
       />
+
+      {teams.map((team) => (
+        <Team
+          title={team.name}
+          color={team.primaryColor}
+          backgroundColor={team.secondaryColor}
+        />
+      ))}
     </>
   );
 }

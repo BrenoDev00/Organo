@@ -11,7 +11,7 @@ export default {
       },
       fontFamily: {
         prata: ["Prata", "serif"],
-        montserrat: ["Montserrat", "serif"],
+        montserrat: ["Montserrat", "sans-serif"],
       },
     },
   },
