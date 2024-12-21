@@ -1,4 +1,5 @@
 # Organo - cadastro de colaboradores em times diferentes
+![Organo app](./organo/public/images/organo.png)
 ## Descrição
 - Aplicação React de cadastro de colaboradores em diferentes times de tecnologia no formato de organograma.
 ## Tecnologias utilizadas
