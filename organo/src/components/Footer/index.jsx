@@ -5,7 +5,7 @@ export const Footer = () => {
         <div>
           <img
             className="w-[170px]"
-            src="./public/images/logo.png"
+            src="/images/logo.png"
             alt="Logo do Organo."
           />
         </div>
