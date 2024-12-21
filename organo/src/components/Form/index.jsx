@@ -11,10 +11,13 @@ export const Form = (props) => {
 
   const preventDefault = (event) => {
     event.preventDefault();
-    console.log(nameField);
-    console.log(positionField);
-    console.log(imageField);
-    console.log(teamField);
+    
+    props.onCollaboratorRegistered({
+      nameField,
+      positionField,
+      imageField,
+      teamField
+    })
   };
 
   return (

@@ -1,45 +1,52 @@
 import { Banner } from "./components/Banner";
 import { Form } from "./components/Form";
 import { Team } from "./components/Team";
+import { useState } from "react";
 
 function App() {
   const teams = [
     {
       name: "Programação",
       primaryColor: "#57C278",
-      secondaryColor: "#D9F7E9",
+      backgroundColor: "#D9F7E9",
     },
     {
       name: "Front-End",
       primaryColor: "#82CFFA",
-      secondaryColor: "#E8F8FF",
+      backgroundColor: "#E8F8FF",
     },
     {
       name: "Data Science",
       primaryColor: "#A6D157",
-      secondaryColor: "#F0F8E2",
+      backgroundColor: "#F0F8E2",
     },
     {
       name: "Devops",
       primaryColor: "#E06B69",
-      secondaryColor: "#FDE7E8",
+      backgroundColor: "#FDE7E8",
     },
     {
       name: "UX e Design",
       primaryColor: "#DB6EBF",
-      secondaryColor: "#FAE9F5",
+      backgroundColor: "#FAE9F5",
     },
     {
       name: "Mobile",
       primaryColor: "#FFBA05",
-      secondaryColor: "#FFF5D9",
+      backgroundColor: "#FFF5D9",
     },
     {
       name: "Inovação e Gestão",
       primaryColor: "#FF8A29",
-      secondaryColor: "#FFEEDF",
+      backgroundColor: "#FFEEDF",
     },
   ];
+
+  const [collaborators, setCollaborators] = useState([]);
+
+  const onNewCollaboratorRegistered = (collaborator) => {
+    setCollaborators([...collaborators, collaborator]);
+  };
 
   return (
     <>
@@ -47,13 +54,20 @@ function App() {
       <Form
         title="Preencha os dados para criar o card do colaborador."
         teams={teams.map((team) => team.name)}
+        onCollaboratorRegistered={(collaborator) =>
+          onNewCollaboratorRegistered(collaborator)
+        }
       />
 
       {teams.map((team) => (
         <Team
+          key={team.name}
           title={team.name}
-          color={team.primaryColor}
-          backgroundColor={team.secondaryColor}
+          primaryColor={team.primaryColor}
+          backgroundColor={team.backgroundColor}
+          collaborators={collaborators.filter(
+            (collaborator) => collaborator.teamField === team.name
+          )}
         />
       ))}
     </>
