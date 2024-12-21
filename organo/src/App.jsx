@@ -1,6 +1,7 @@
 import { Banner } from "./components/Banner";
 import { Form } from "./components/Form";
 import { Team } from "./components/Team";
+import { Footer } from "./components/Footer";
 import { useState } from "react";
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
   return (
     <>
       <Banner />
+
       <Form
         title="Preencha os dados para criar o card do colaborador."
         teams={teams.map((team) => team.name)}
@@ -70,6 +72,8 @@ function App() {
           )}
         />
       ))}
+
+      <Footer />
     </>
   );
 }
