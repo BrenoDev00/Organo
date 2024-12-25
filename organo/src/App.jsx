@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { Banner } from "./components/Banner";
 import { Form } from "./components/Form";
 import { Team } from "./components/Team";
 import { Footer } from "./components/Footer";
-import { useState } from "react";
 
 function App() {
   const teams = [
@@ -49,6 +49,14 @@ function App() {
     setCollaborators([...collaborators, collaborator]);
   };
 
+  const removeCollaborator = (card) => {
+    const newCollaborators = [...collaborators];
+    const collaboratorsIndex = newCollaborators.indexOf(card);
+
+    newCollaborators.splice(collaboratorsIndex, 1);
+    setCollaborators(newCollaborators);
+  };
+
   return (
     <>
       <Banner />
@@ -70,6 +78,7 @@ function App() {
           collaborators={collaborators.filter(
             (collaborator) => collaborator.teamField === team.name
           )}
+          removeCollaborator={removeCollaborator}
         />
       ))}
 

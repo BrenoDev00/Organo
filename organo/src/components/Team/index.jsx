@@ -16,13 +16,14 @@ export const Team = (props) => {
         </div>
 
         <div className="flex justify-center flex-wrap gap-[28px]">
-          {props.collaborators.map((collaborator) => (
+          {props.collaborators.map((collaborator, index) => (
             <Card
-              key={collaborator.nameField}
+              key={index}
               image={collaborator.imageField}
               name={collaborator.nameField}
               position={collaborator.positionField}
               backgroundColor={props.primaryColor}
+              removeCollaborator={props.removeCollaborator}
             />
           ))}
         </div>
