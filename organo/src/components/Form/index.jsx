@@ -56,7 +56,7 @@ export const Form = (props) => {
             required={false}
             label="Imagem"
             type="text"
-            placeholder="Informe o endereço da imagem"
+            placeholder="Imagem da web (ex.: https://github.com/nome do perfil.png)"
             value={imageField}
             onInput={(event) => setImageField(event)}
           />
