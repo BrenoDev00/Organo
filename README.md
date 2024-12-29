@@ -3,7 +3,7 @@
 ![Organo app](./organo/public/images/organo.png)
 ## Descrição
 - Aplicação React de cadastro de colaboradores em diferentes times de tecnologia no formato de organograma;
-- Através da aplicação, é possivel cadastrar e remover colaboradores.
+- Através da aplicação é possivel cadastrar, listar e remover colaboradores.
 ## Tecnologias utilizadas
 - React.JS: criação e reutilização de componentes e uso do hook useState;
 - React Icons: pacote de ícones;
