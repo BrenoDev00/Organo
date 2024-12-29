@@ -1,8 +1,13 @@
 export const Button = (props) => {
   return (
     <button
-      className="bg-bg-blue text-white p-[20px] font-bold font-montserrat rounded-[10px] hover:text-cyan-hover"
+      className={`${
+        props.variant === "default"
+          ? "bg-bg-blue hover:text-cyan-hover text-white"
+          : "bg-white text-bg-blue border-2 border-bg-blue hover:bg-cyan-hover"
+      } p-[15px] font-bold font-montserrat rounded-[10px] transition`}
       type={props.type}
+      variant={props.variant}
     >
       {props.title}
     </button>

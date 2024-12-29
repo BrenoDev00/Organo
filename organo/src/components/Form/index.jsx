@@ -70,7 +70,7 @@ export const Form = (props) => {
           />
 
           <div className="self-start">
-            <Button type="submit" title="Criar card" />
+            <Button type="submit" variant="default" title="Criar card" />
           </div>
         </div>
       </form>
