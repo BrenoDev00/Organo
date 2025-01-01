@@ -1,11 +1,11 @@
-# Organo - cadastro de colaboradores em times diferentes
+# Organo - cadastro de colaboradores em times diferentes (em andamento)
 ## Link da aplicação: https://frolicking-concha-8a62eb.netlify.app/
 ![Organo app](./organo/public/images/organo.png)
 ## Descrição
 - Aplicação React de cadastro de colaboradores em diferentes times de tecnologia no formato de organograma;
 - Através da aplicação é possivel cadastrar, listar e remover colaboradores.
 ## Tecnologias utilizadas
-- React.JS: criação e reutilização de componentes e uso do hook useState;
+- React.JS: criação e reutilização de componentes e utilização do hook useState;
 - React Icons: pacote de ícones;
 - Tailwind CSS: utilização de classes utilitárias e personalização de tema com variáveis;
 - Vite: ferramenta de build e servidor de desenvolvimento;
