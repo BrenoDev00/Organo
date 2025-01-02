@@ -1,10 +1,6 @@
-import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
-import { Modal } from "../Modal";
 
 export const Card = (props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <>
       <div className="flex flex-col gap-2">
@@ -14,7 +10,7 @@ export const Card = (props) => {
             style={{ fill: props.backgroundColor }}
             onClick={() => {
               // props.removeCollaborator(Card);
-              setIsModalOpen(!isModalOpen);
+              props.setIsModalOpen(!props.isModalOpen);
             }}
           />
         </div>
@@ -39,14 +35,6 @@ export const Card = (props) => {
           </div>
         </article>
       </div>
-
-      <Modal
-        icon={<FaTrashAlt className="fill-bg-blue w-[20px] h-[20px]" />}
-        message="Deseja remover o colaborador?"
-        primaryButtonMessage="Remover"
-        secondaryButtonMessage="Cancelar"
-        isOpen={isModalOpen}
-      ></Modal>
     </>
   );
 };
