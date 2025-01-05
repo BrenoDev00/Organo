@@ -1,4 +1,4 @@
-# Organo - cadastro de colaboradores em times diferentes (em andamento)
+# Organo - cadastro de colaboradores em times de tecnologia (em andamento)
 ## Link da aplicação: https://frolicking-concha-8a62eb.netlify.app/
 ![Organo app](./organo/public/images/organo.png)
 ## Descrição
@@ -13,6 +13,6 @@
 ## Como rodar a aplicação
 - Clone o repositório localmente;
 - Em seguida, entre na pasta mais interna chamada organo e execute os seguintes comandos: npm install (para instalar as dependências gerais da aplicação) e depois npm install -D tailwindcss postcss autoprefixer (para instalar as dependências do Tailwind CSS);
-- Depois, execute o comando npm run dev que irá rodar o servidor da aplicação possivelmente na porta 5173 do seu navegador web;   
+- Depois, execute o comando npm run dev que irá rodar o servidor da aplicação possivelmente na porta 5173 do seu navegador web.   
 ## Licença
 Este código está licenciado usando a [licença-MIT](./LICENSE).
