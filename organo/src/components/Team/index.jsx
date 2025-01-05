@@ -24,8 +24,7 @@ export const Team = (props) => {
               position={collaborator.positionField}
               backgroundColor={props.primaryColor}
               removeCollaborator={props.removeCollaborator}
-              setIsModalOpen={props.setIsModalOpen}
-              isModalOpen={props.isModalOpen}
+              
             />
           ))}
         </div>

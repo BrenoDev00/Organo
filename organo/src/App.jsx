@@ -3,8 +3,6 @@ import { Banner } from "./components/Banner";
 import { Form } from "./components/Form";
 import { Team } from "./components/Team";
 import { Footer } from "./components/Footer";
-import { Modal } from "./components/Modal";
-import { FaTrashAlt } from "react-icons/fa";
 
 function App() {
   const teams = [
@@ -59,8 +57,6 @@ function App() {
     setCollaborators(newCollaborators);
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <>
       <Banner />
@@ -72,7 +68,7 @@ function App() {
           onNewCollaboratorRegistered(collaborator)
         }
       />
-      
+
       {teams.map((team) => (
         <Team
           key={team.name}
@@ -83,20 +79,10 @@ function App() {
             (collaborator) => collaborator.teamField === team.name
           )}
           removeCollaborator={removeCollaborator}
-          setIsModalOpen={setIsModalOpen}
-          isModalOpen={isModalOpen}
         />
       ))}
 
       <Footer />
-
-      <Modal
-        icon={<FaTrashAlt className="fill-bg-blue w-[20px] h-[20px]" />}
-        message="Deseja remover o colaborador?"
-        primaryButtonMessage="Remover"
-        secondaryButtonMessage="Cancelar"
-        isOpen={isModalOpen}
-      ></Modal>
     </>
   );
 }

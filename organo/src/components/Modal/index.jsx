@@ -18,9 +18,13 @@ export const Modal = (props) => {
         </div>
         {props.children}
         <div className="flex gap-[60px]">
-          <Button type="button" title={props.primaryButtonMessage} />
           <Button
-            onClick={props.closeModal}
+            onClick={props.handleModalType}
+            type="button"
+            title={props.primaryButtonMessage}
+          />
+          <Button
+            onClick={() => props.isClose(!props.isOpen)}
             type="button"
             title={props.secondaryButtonMessage}
             variant="secondary"

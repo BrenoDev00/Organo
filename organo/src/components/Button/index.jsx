@@ -1,6 +1,7 @@
 export const Button = (props) => {
   return (
     <button
+      onClick={props.onClick}
       className={`${
         props.variant === "secondary"
           ? "bg-white text-bg-blue border-2 border-bg-blue hover:bg-cyan-hover"
