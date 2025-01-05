@@ -13,7 +13,6 @@ export const Card = (props) => {
             className="w-[20px] cursor-pointer"
             style={{ fill: props.backgroundColor }}
             onClick={() => {
-              // removeCollaborator={props.removeCollaborator(Card)}
               setIsModalOpen(!isModalOpen);
             }}
           />

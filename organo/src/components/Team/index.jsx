@@ -14,7 +14,7 @@ export const Team = (props) => {
             style={{ backgroundColor: props.primaryColor }}
           ></span>
         </div>
-        
+
         <div className="flex justify-center flex-wrap gap-[28px]">
           {props.collaborators.map((collaborator, index) => (
             <Card
@@ -24,7 +24,6 @@ export const Team = (props) => {
               position={collaborator.positionField}
               backgroundColor={props.primaryColor}
               removeCollaborator={props.removeCollaborator}
-              
             />
           ))}
         </div>
