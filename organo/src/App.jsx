@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Banner } from "./components/Banner";
 import { Form } from "./components/Form";
+import { RecordCounter } from "./components/RecordCounter";
 import { Team } from "./components/Team";
 import { Footer } from "./components/Footer";
 
@@ -68,6 +69,12 @@ function App() {
           onNewCollaboratorRegistered(collaborator)
         }
       />
+
+      {collaborators.length > 0 && (
+        <div className="ml-4 mb-4">
+          <RecordCounter total={collaborators.length} />
+        </div>
+      )}
 
       {teams.map((team) => (
         <Team
