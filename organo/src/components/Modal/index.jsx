@@ -7,7 +7,7 @@ export const Modal = (props) => {
         props.isOpen
           ? "opacity-100 pointer-events-auto flex"
           : "opacity-0 pointer-events-none"
-      } bg-transparent backdrop-blur-md h-screen w-screen fixed top-0 bottom-0 left-0 right-0 justify-center items-center transition-opacity duration-300`}
+      } z-10 bg-transparent backdrop-blur-md h-screen w-screen fixed top-0 bottom-0 left-0 right-0 justify-center items-center transition-opacity duration-300`}
     >
       <dialog
         className={`bg-light-gray w-[500px] flex flex-col gap-[80px] items-center px-[100px] py-[50px] rounded-[20px] shadow-xl`}
