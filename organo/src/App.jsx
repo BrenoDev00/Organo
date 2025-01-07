@@ -50,11 +50,11 @@ function App() {
     setCollaborators([...collaborators, collaborator]);
   };
 
-  const removeCollaborator = (card) => {
-    const newCollaborators = [...collaborators];
-    const collaboratorsIndex = newCollaborators.indexOf(card);
+  const removeCollaborator = (id) => {
+    const newCollaborators = collaborators.filter((collaborator) => {
+      return collaborator.id !== id;
+    });
 
-    newCollaborators.splice(collaboratorsIndex, 1);
     setCollaborators(newCollaborators);
   };
 

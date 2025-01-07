@@ -13,6 +13,7 @@ export const Form = (props) => {
     event.preventDefault();
 
     props.onCollaboratorRegistered({
+      id: Date.now(),
       nameField,
       positionField,
       imageField,
@@ -37,6 +38,7 @@ export const Form = (props) => {
           <TextField
             required={true}
             label="Nome"
+            for="nome"
             type="text"
             placeholder="Digite seu nome"
             value={nameField}
@@ -46,6 +48,7 @@ export const Form = (props) => {
           <TextField
             required={true}
             label="Cargo"
+            for="cargo"
             type="text"
             placeholder="Digite seu cargo"
             value={positionField}
@@ -55,6 +58,7 @@ export const Form = (props) => {
           <TextField
             required={false}
             label="Imagem"
+            for="imagem"
             type="text"
             placeholder="Imagem da web (ex.: https://github.com/nome do perfil.png)"
             value={imageField}
@@ -65,6 +69,7 @@ export const Form = (props) => {
             required={true}
             teams={props.teams}
             label="Time"
+            for="time"
             value={teamField}
             onChange={(event) => setTeamField(event)}
           />

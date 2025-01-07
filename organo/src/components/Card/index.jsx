@@ -18,6 +18,8 @@ export const Card = (props) => {
           />
         </div>
 
+        <div className="hidden">{props.id}</div>
+
         <article className="flex flex-col w-[262px] shadow-lg rounded-[10px] bg-white">
           <div
             className="flex justify-center h-[90px] w-full rounded-tl-[10px] rounded-tr-[10px]"
@@ -46,7 +48,7 @@ export const Card = (props) => {
         secondaryButtonMessage="Cancelar"
         isOpen={isModalOpen}
         isClose={setIsModalOpen}
-        handleModalType={() => props.removeCollaborator(Card)}
+        handleModalType={() => props.removeCollaborator(props.id)}
       ></Modal>
     </>
   );

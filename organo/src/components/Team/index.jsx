@@ -16,9 +16,10 @@ export const Team = (props) => {
         </div>
 
         <div className="flex justify-center flex-wrap gap-[28px]">
-          {props.collaborators.map((collaborator, index) => (
+          {props.collaborators.map((collaborator) => (
             <Card
-              key={index}
+              key={collaborator.id}
+              id={collaborator.id}
               image={collaborator.imageField}
               name={collaborator.nameField}
               position={collaborator.positionField}
