@@ -1,16 +1,16 @@
 export const Footer = () => {
   return (
     <>
-      <footer className="bg-bg-blue flex flex-col items-center p-[20px] gap-[20px] justify-center">
+      <footer className="bg-bg-blue flex items-center p-[20px] gap-[20px] justify-center">
         <div>
           <img
-            className="w-[170px]"
+            className="w-[150px]"
             src="/images/logo.png"
             alt="Logo do Organo."
           />
         </div>
 
-        <p className="text-white text-1xl">Desenvolvido por Breno.</p>
+        <p className="text-white text-lg">Desenvolvido por Breno.</p>
       </footer>
     </>
   );
