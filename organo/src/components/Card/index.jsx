@@ -1,19 +1,29 @@
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
+import { MdModeEditOutline } from "react-icons/md";
 import { Modal } from "../Modal";
+import { TextField } from "../TextField";
 
 export const Card = (props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isRemoveModalOpen, setIsRemoveModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   return (
     <>
       <div className="flex flex-col gap-2">
-        <div className="self-center">
+        <div className="self-center flex items-center gap-2">
           <FaTrashAlt
-            className="w-[20px] cursor-pointer"
+            className="w-[20px] h-[20px] cursor-pointer"
             style={{ fill: props.backgroundColor }}
             onClick={() => {
-              setIsModalOpen(!isModalOpen);
+              setIsRemoveModalOpen(!isRemoveModalOpen);
+            }}
+          />
+          <MdModeEditOutline
+            className="w-[23px] h-[23px] cursor-pointer"
+            style={{ fill: props.backgroundColor }}
+            onClick={() => {
+              setIsEditModalOpen(!isEditModalOpen);
             }}
           />
         </div>
@@ -46,10 +56,52 @@ export const Card = (props) => {
         message="Deseja remover o colaborador?"
         primaryButtonMessage="Remover"
         secondaryButtonMessage="Cancelar"
-        isOpen={isModalOpen}
-        isClose={setIsModalOpen}
+        isOpen={isRemoveModalOpen}
+        isClose={setIsRemoveModalOpen}
         handleModalType={() => props.removeCollaborator(props.id)}
       ></Modal>
+
+      <Modal
+        className="flex"
+        icon={<MdModeEditOutline className="fill-bg-blue w-[25px] h-[25px]" />}
+        message="Editar colaborador"
+        primaryButtonMessage="Editar"
+        secondaryButtonMessage="Cancelar"
+        isOpen={isEditModalOpen}
+        isClose={setIsEditModalOpen}
+      >
+        <form className="w-full -mt-10 flex flex-col gap-6 items-center">
+          <div className="w-[400px]">
+            <TextField
+              for="nome"
+              label="Nome"
+              type="text"
+              placeholder="Informe o nome do colaborador"
+              required={true}
+            />
+          </div>
+
+          <div className="w-[400px]">
+            <TextField
+              for="cargo"
+              label="Cargo"
+              type="text"
+              placeholder="Informe o cargo do colaborador"
+              required={true}
+            />
+          </div>
+
+          <div className="w-[400px]">
+            <TextField
+              for="imagem"
+              label="Imagem"
+              type="text"
+              placeholder="Imagem da web"
+              required={true}
+            />
+          </div>
+        </form>
+      </Modal>
     </>
   );
 };
