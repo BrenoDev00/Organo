@@ -58,6 +58,10 @@ function App() {
     setCollaborators(newCollaborators);
   };
 
+  const editCollaborator = () => {
+    // Função de editar colaborador
+  };
+
   return (
     <>
       <Banner />

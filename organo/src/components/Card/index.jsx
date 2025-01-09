@@ -62,13 +62,13 @@ export const Card = (props) => {
       ></Modal>
 
       <Modal
-        className="flex"
         icon={<MdModeEditOutline className="fill-bg-blue w-[25px] h-[25px]" />}
         message="Editar colaborador"
         primaryButtonMessage="Editar"
         secondaryButtonMessage="Cancelar"
         isOpen={isEditModalOpen}
         isClose={setIsEditModalOpen}
+        handleModalType={() => setIsEditModalOpen(!isEditModalOpen)}
       >
         <form className="w-full -mt-10 flex flex-col gap-6 items-center">
           <div className="w-[400px]">
