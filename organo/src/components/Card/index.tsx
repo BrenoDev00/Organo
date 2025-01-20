@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { Modal } from "../Modal";
+import { CardProps } from "../../types/components";
 
-export const Card = (props) => {
+export const Card = (props: CardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (

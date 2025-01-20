@@ -18,7 +18,9 @@ export const Modal = (props) => {
           </div>
           <p className="font-medium text-xl text-dark-color">{props.message}</p>
         </div>
+
         {props.children}
+
         <div className="flex gap-[60px]">
           <Button
             onClick={props.handleModalType}

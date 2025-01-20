@@ -1,4 +1,6 @@
-export const Button = (props) => {
+import { ButtonProps } from "../../types/components";
+
+export const Button = (props: ButtonProps) => {
   return (
     <button
       onClick={props.onClick}
@@ -8,7 +10,6 @@ export const Button = (props) => {
           : "bg-bg-blue hover:text-cyan-hover text-white"
       } p-[15px] font-bold font-montserrat rounded-[10px] transition`}
       type={props.type}
-      variant={props.variant}
     >
       {props.title}
     </button>
