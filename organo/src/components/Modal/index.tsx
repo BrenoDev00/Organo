@@ -1,6 +1,7 @@
 import { Button } from "../Button";
+import { ModalProps } from "../../types/components";
 
-export const Modal = (props) => {
+export const Modal = (props: ModalProps) => {
   return (
     <div
       className={`${
