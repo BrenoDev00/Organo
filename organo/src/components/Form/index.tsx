@@ -1,15 +1,16 @@
+import { FormEvent, SetStateAction, useState } from "react";
 import { TextField } from "../TextField";
 import { Dropdown } from "../Dropdown";
 import { Button } from "../Button";
-import { useState } from "react";
+import { FormProps } from "../../types/components";
 
-export const Form = (props) => {
-  const [nameField, setNameField] = useState("");
-  const [positionField, setPositionField] = useState("");
-  const [imageField, setImageField] = useState("");
-  const [teamField, setTeamField] = useState("");
+export const Form = (props: FormProps) => {
+  const [nameField, setNameField] = useState<string>("");
+  const [positionField, setPositionField] = useState<string>("");
+  const [imageField, setImageField] = useState<string>("");
+  const [teamField, setTeamField] = useState<string>("");
 
-  const preventDefault = (event) => {
+  const preventDefault = (event: FormEvent) => {
     event.preventDefault();
 
     props.onCollaboratorRegistered({
