@@ -6,7 +6,7 @@ import { Team } from "./components/Team";
 import { Footer } from "./components/Footer";
 
 function App() {
-  const teams = [
+  const teams: object[] = [
     {
       name: "Programação",
       primaryColor: "#57C278",
@@ -44,13 +44,13 @@ function App() {
     },
   ];
 
-  const [collaborators, setCollaborators] = useState([]);
+  const [collaborators, setCollaborators] = useState<object[]>([]);
 
-  const onNewCollaboratorRegistered = (collaborator) => {
+  const onNewCollaboratorRegistered = (collaborator: object) => {
     setCollaborators([...collaborators, collaborator]);
   };
 
-  const removeCollaborator = (id) => {
+  const removeCollaborator = (id: string) => {
     const newCollaborators = collaborators.filter((collaborator) => {
       return collaborator.id !== id;
     });

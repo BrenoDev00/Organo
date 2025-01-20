@@ -1,6 +1,7 @@
 import { Card } from "../Card";
+import { TeamProps } from "../../types/components";
 
-export const Team = (props) => {
+export const Team = (props: TeamProps) => {
   return (
     props.collaborators.length > 0 && (
       <section
@@ -16,7 +17,7 @@ export const Team = (props) => {
         </div>
 
         <div className="flex justify-center flex-wrap gap-[28px]">
-          {props.collaborators.map((collaborator) => (
+          {props.collaborators.map((collaborator: string) => (
             <Card
               key={collaborator.id}
               id={collaborator.id}

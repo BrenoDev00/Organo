@@ -1,4 +1,6 @@
-export const TextField = (props) => {
+import { TextFieldProps } from "../../types/components";
+
+export const TextField = (props: TextFieldProps) => {
   return (
     <div className="flex flex-col gap-[8px] font-montserrat">
       <label className="text-[16px] font-semibold" htmlFor={props.for}>
@@ -9,7 +11,7 @@ export const TextField = (props) => {
         type={props.type}
         placeholder={props.placeholder}
         required={props.required}
-        onInput={(event) => props.onInput(event.target.value)}
+        onInput={(event) => props.onInput(event.currentTarget.value)}
         value={props.value}
         id={props.for}
       />
