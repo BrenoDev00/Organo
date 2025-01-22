@@ -5,20 +5,20 @@ import { Button } from "../Button";
 import { FormProps } from "../../types/components";
 
 export const Form = (props: FormProps) => {
-  const [nameField, setNameField] = useState<string>("");
-  const [positionField, setPositionField] = useState<string>("");
-  const [imageField, setImageField] = useState<string>("");
-  const [teamField, setTeamField] = useState<string>("");
+  const [collaboratorName, setNameField] = useState<string>("");
+  const [collaboratorPosition, setPositionField] = useState<string>("");
+  const [collaboratorImage, setImageField] = useState<string>("");
+  const [collaboratorTeam, setTeamField] = useState<string>("");
 
   const preventDefault = (event: FormEvent) => {
     event.preventDefault();
 
     props.onCollaboratorRegistered({
-      id: Date.now(),
-      nameField,
-      positionField,
-      imageField,
-      teamField,
+      collaboratorID: String(Date.now()),
+      collaboratorName,
+      collaboratorPosition,
+      collaboratorImage,
+      collaboratorTeam,
     });
 
     setNameField("");
@@ -42,7 +42,7 @@ export const Form = (props: FormProps) => {
             for="nome"
             type="text"
             placeholder="Digite seu nome"
-            value={nameField}
+            value={collaboratorName}
             onInput={(event) => setNameField(event)}
           />
 
@@ -52,7 +52,7 @@ export const Form = (props: FormProps) => {
             for="cargo"
             type="text"
             placeholder="Digite seu cargo"
-            value={positionField}
+            value={collaboratorPosition}
             onInput={(event) => setPositionField(event)}
           />
 
@@ -62,7 +62,7 @@ export const Form = (props: FormProps) => {
             for="imagem"
             type="text"
             placeholder="Imagem da web (ex.: https://github.com/nome do perfil.png)"
-            value={imageField}
+            value={collaboratorImage}
             onInput={(event) => setImageField(event)}
           />
 
@@ -71,7 +71,7 @@ export const Form = (props: FormProps) => {
             teams={props.teams}
             label="Time"
             for="time"
-            value={teamField}
+            value={collaboratorTeam}
             onChange={(event) => setTeamField(event)}
           />
 

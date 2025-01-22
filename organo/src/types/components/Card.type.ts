@@ -1,8 +1,6 @@
-export interface CardProps {
+import { Collaborator } from "../Collaborator.type";
+
+export interface CardProps extends Collaborator {
   backgroundColor: string;
-  id: string;
-  image: string;
-  name: string;
-  position: string;
   removeCollaborator: (id: string) => void;
 }

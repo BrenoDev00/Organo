@@ -4,55 +4,57 @@ import { Form } from "./components/Form";
 import { RecordCounter } from "./components/RecordCounter";
 import { Team } from "./components/Team";
 import { Footer } from "./components/Footer";
+import { Teams } from "./types/Teams.type";
+import { Collaborator } from "./types/Collaborator.type";
 
 function App() {
-  const teams: object[] = [
+  const teams: Teams[] = [
     {
-      name: "Programação",
+      teamName: "Programação",
       primaryColor: "#57C278",
       backgroundColor: "#D9F7E9",
     },
     {
-      name: "Front-End",
+      teamName: "Front-End",
       primaryColor: "#82CFFA",
       backgroundColor: "#E8F8FF",
     },
     {
-      name: "Data Science",
+      teamName: "Data Science",
       primaryColor: "#A6D157",
       backgroundColor: "#F0F8E2",
     },
     {
-      name: "Devops",
+      teamName: "Devops",
       primaryColor: "#E06B69",
       backgroundColor: "#FDE7E8",
     },
     {
-      name: "UX e Design",
+      teamName: "UX e Design",
       primaryColor: "#DB6EBF",
       backgroundColor: "#FAE9F5",
     },
     {
-      name: "Mobile",
+      teamName: "Mobile",
       primaryColor: "#FFBA05",
       backgroundColor: "#FFF5D9",
     },
     {
-      name: "Inovação e Gestão",
+      teamName: "Inovação e Gestão",
       primaryColor: "#FF8A29",
       backgroundColor: "#FFEEDF",
     },
   ];
 
-  const [collaborators, setCollaborators] = useState<object[]>([]);
+  const [collaborators, setCollaborators] = useState<Collaborator[]>([]);
 
-  const onNewCollaboratorRegistered = (collaborator: object) => {
+  const onNewCollaboratorRegistered = (collaborator: Collaborator) => {
     setCollaborators([...collaborators, collaborator]);
   };
 
   const removeCollaborator = (id: string) => {
     const newCollaborators = collaborators.filter((collaborator) => {
-      return collaborator.id !== id;
+      return collaborator.collaboratorID !== id;
     });
 
     setCollaborators(newCollaborators);
@@ -64,7 +66,7 @@ function App() {
 
       <Form
         title="Preencha os dados para criar o card do colaborador."
-        teams={teams.map((team) => team.name)}
+        teams={teams.map((team) => team.teamName)}
         onCollaboratorRegistered={(collaborator) =>
           onNewCollaboratorRegistered(collaborator)
         }
@@ -78,12 +80,12 @@ function App() {
 
       {teams.map((team) => (
         <Team
-          key={team.name}
-          title={team.name}
+          key={team.teamName}
+          teamName={team.teamName}
           primaryColor={team.primaryColor}
           backgroundColor={team.backgroundColor}
           collaborators={collaborators.filter(
-            (collaborator) => collaborator.teamField === team.name
+            (collaborator) => collaborator.collaboratorTeam === team.teamName
           )}
           removeCollaborator={removeCollaborator}
         />

@@ -9,7 +9,9 @@ export const Team = (props: TeamProps) => {
         style={{ backgroundColor: props.backgroundColor }}
       >
         <div className="flex flex-col gap-[9px] items-center">
-          <h2 className="text-[32px] text-center font-prata ">{props.title}</h2>
+          <h2 className="text-[32px] text-center font-prata ">
+            {props.teamName}
+          </h2>
           <span
             className="w-[32px] h-1"
             style={{ backgroundColor: props.primaryColor }}
@@ -17,13 +19,13 @@ export const Team = (props: TeamProps) => {
         </div>
 
         <div className="flex justify-center flex-wrap gap-[28px]">
-          {props.collaborators.map((collaborator: string) => (
+          {props.collaborators.map((collaborator: any) => (
             <Card
               key={collaborator.id}
-              id={collaborator.id}
-              image={collaborator.imageField}
-              name={collaborator.nameField}
-              position={collaborator.positionField}
+              collaboratorID={collaborator.id}
+              collaboratorImage={collaborator.imageField}
+              collaboratorName={collaborator.collaboratorName}
+              collaboratorPosition={collaborator.positionField}
               backgroundColor={props.primaryColor}
               removeCollaborator={props.removeCollaborator}
             />

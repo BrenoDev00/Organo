@@ -19,7 +19,7 @@ export const Card = (props: CardProps) => {
           />
         </div>
 
-        <div className="hidden">{props.id}</div>
+        <div className="hidden">{props.collaboratorID}</div>
 
         <article className="flex flex-col w-[262px] shadow-lg rounded-[10px] bg-white">
           <div
@@ -28,16 +28,16 @@ export const Card = (props: CardProps) => {
           >
             <img
               className="translate-y-1/4 w-[120px] h-[120px] rounded-full "
-              src={props.image}
-              alt={`imagem de ${props.name}`}
+              src={props.collaboratorImage}
+              alt={`imagem de ${props.collaboratorName}`}
             />
           </div>
 
           <div className="flex flex-col gap-[10px] bg-white font-montserrat text-center rounded-bl-[10px] rounded-br-[10px] px-[30px] py-[27px] ">
             <h3 className="text-bg-blue text-[18px] font-semibold mt-[50px] break-words">
-              {props.name}
+              {props.collaboratorName}
             </h3>
-            <p className="break-words">{props.position}</p>
+            <p className="break-words">{props.collaboratorPosition}</p>
           </div>
         </article>
       </div>
@@ -49,7 +49,7 @@ export const Card = (props: CardProps) => {
         secondaryButtonMessage="Cancelar"
         isOpen={isModalOpen}
         isClose={setIsModalOpen}
-        handleModalType={() => props.removeCollaborator(props.id)}
+        handleModalType={() => props.removeCollaborator(props.collaboratorID)}
       ></Modal>
     </>
   );
