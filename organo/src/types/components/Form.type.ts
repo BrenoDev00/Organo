@@ -1,7 +1,7 @@
-import { Collaborator } from "../Collaborator.type";
+import { CollaboratorType } from "../Collaborator.type";
 
 export interface FormProps {
-  onCollaboratorRegistered: (collaborator: Collaborator) => void;
+  onCollaboratorRegistered: (collaborator: CollaboratorType) => void;
   title: string;
   teams: string[];
 }

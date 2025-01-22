@@ -4,11 +4,11 @@ import { Form } from "./components/Form";
 import { RecordCounter } from "./components/RecordCounter";
 import { Team } from "./components/Team";
 import { Footer } from "./components/Footer";
-import { Teams } from "./types/Teams.type";
-import { Collaborator } from "./types/Collaborator.type";
+import { TeamsType } from "./types/Teams.type";
+import { CollaboratorType } from "./types/Collaborator.type";
 
 function App() {
-  const teams: Teams[] = [
+  const teams: TeamsType[] = [
     {
       teamName: "Programação",
       primaryColor: "#57C278",
@@ -46,9 +46,9 @@ function App() {
     },
   ];
 
-  const [collaborators, setCollaborators] = useState<Collaborator[]>([]);
+  const [collaborators, setCollaborators] = useState<CollaboratorType[]>([]);
 
-  const onNewCollaboratorRegistered = (collaborator: Collaborator) => {
+  const onNewCollaboratorRegistered = (collaborator: CollaboratorType) => {
     setCollaborators([...collaborators, collaborator]);
   };
 

@@ -1,4 +1,4 @@
-export interface Collaborator {
+export interface CollaboratorType {
   collaboratorID: string;
   collaboratorName: string;
   collaboratorPosition: string;

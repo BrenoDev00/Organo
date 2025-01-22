@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import { Teams } from "../Teams.type";
-import { Collaborator } from "../Collaborator.type";
+import { TeamsType } from "../Teams.type";
+import { CollaboratorType } from "../Collaborator.type";
 
-export interface TeamProps extends Teams {
-  collaborators: ReactNode[] | Collaborator[];
+export interface TeamProps extends TeamsType {
+  collaborators: ReactNode[] | CollaboratorType[];
   removeCollaborator: (id: string) => void;
 }
