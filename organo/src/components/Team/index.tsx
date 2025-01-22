@@ -21,11 +21,11 @@ export const Team = (props: TeamProps) => {
         <div className="flex justify-center flex-wrap gap-[28px]">
           {props.collaborators.map((collaborator: any) => (
             <Card
-              key={collaborator.id}
-              collaboratorID={collaborator.id}
-              collaboratorImage={collaborator.imageField}
+              key={collaborator.collaboratorID}
+              collaboratorID={collaborator.collaboratorID}
+              collaboratorImage={collaborator.collaboratorImage}
               collaboratorName={collaborator.collaboratorName}
-              collaboratorPosition={collaborator.positionField}
+              collaboratorPosition={collaborator.collaboratorPosition}
               backgroundColor={props.primaryColor}
               removeCollaborator={props.removeCollaborator}
             />

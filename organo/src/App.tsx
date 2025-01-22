@@ -53,9 +53,11 @@ function App() {
   };
 
   const removeCollaborator = (id: string) => {
-    const newCollaborators = collaborators.filter((collaborator) => {
-      return collaborator.collaboratorID !== id;
-    });
+    const newCollaborators = collaborators.filter(
+      (collaborator: CollaboratorType) => {
+        return collaborator.collaboratorID !== id;
+      }
+    );
 
     setCollaborators(newCollaborators);
   };

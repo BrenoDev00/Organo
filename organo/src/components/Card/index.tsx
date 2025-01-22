@@ -4,7 +4,7 @@ import { Modal } from "../Modal";
 import { CardProps } from "../../types/components";
 
 export const Card = (props: CardProps) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
     <>
