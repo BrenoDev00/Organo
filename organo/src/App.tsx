@@ -2,50 +2,13 @@ import { useState } from "react";
 import { Banner } from "./components/Banner";
 import { Form } from "./components/Form";
 import { RecordCounter } from "./components/RecordCounter";
+import { SearchBar } from "./components/SearchBar";
 import { Team } from "./components/Team";
 import { Footer } from "./components/Footer";
-import { TeamsType } from "./types/Teams.type";
+import { teams } from "./utils/teams";
 import { CollaboratorType } from "./types/Collaborator.type";
 
 function App() {
-  const teams: TeamsType[] = [
-    {
-      teamName: "Programação",
-      primaryColor: "#57C278",
-      backgroundColor: "#D9F7E9",
-    },
-    {
-      teamName: "Front-End",
-      primaryColor: "#82CFFA",
-      backgroundColor: "#E8F8FF",
-    },
-    {
-      teamName: "Data Science",
-      primaryColor: "#A6D157",
-      backgroundColor: "#F0F8E2",
-    },
-    {
-      teamName: "Devops",
-      primaryColor: "#E06B69",
-      backgroundColor: "#FDE7E8",
-    },
-    {
-      teamName: "UX e Design",
-      primaryColor: "#DB6EBF",
-      backgroundColor: "#FAE9F5",
-    },
-    {
-      teamName: "Mobile",
-      primaryColor: "#FFBA05",
-      backgroundColor: "#FFF5D9",
-    },
-    {
-      teamName: "Inovação e Gestão",
-      primaryColor: "#FF8A29",
-      backgroundColor: "#FFEEDF",
-    },
-  ];
-
   const [collaborators, setCollaborators] = useState<CollaboratorType[]>([]);
 
   const onNewCollaboratorRegistered = (collaborator: CollaboratorType) => {
@@ -62,6 +25,18 @@ function App() {
     setCollaborators(newCollaborators);
   };
 
+  const handleCollaboratorSearch = (result: string) => {
+    const newCollaborators = [...collaborators];
+
+    const collaboratorResearched: CollaboratorType[] = newCollaborators.filter(
+      (collaborator) => {
+        return collaborator.collaboratorName === result;
+      }
+    );
+
+    setCollaborators(collaboratorResearched);
+  };
+
   return (
     <>
       <Banner />
@@ -75,9 +50,15 @@ function App() {
       />
 
       {collaborators.length > 0 && (
-        <div className="ml-4 mb-4">
-          <RecordCounter total={collaborators.length} />
-        </div>
+        <>
+          <div className="ml-4 mb-4">
+            <RecordCounter total={collaborators.length} />
+          </div>
+
+          <div className="flex justify-center mb-4 translate-y-[-160%]">
+            <SearchBar onInput={(event) => handleCollaboratorSearch(event)} />
+          </div>
+        </>
       )}
 
       {teams.map((team) => (

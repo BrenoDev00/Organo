@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { TeamsType } from "../Teams.type";
+import { TeamsType } from "../utils/Teams.type";
 import { CollaboratorType } from "../Collaborator.type";
 
 export interface TeamProps extends TeamsType {
