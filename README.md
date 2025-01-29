@@ -4,6 +4,10 @@
 ## Descrição
 - Aplicação React de cadastro de colaboradores em diferentes times de tecnologia no formato de organograma;
 - Funcionalidades: através da aplicação é possível cadastrar, listar e remover colaboradores, além de contagem total de colaboradores cadastrados. 
+## Funcionalidades
+- Cadastrar, listar e remover colaboradores;
+- Contador de registro de colaboradores cadastrados;
+- Pesquisa de colaboradores por nome.
 ## Tecnologias utilizadas
 - React.JS: criação e reutilização de componentes e utilização do hook useState;
 - React Icons: pacote de ícones;
