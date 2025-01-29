@@ -11,8 +11,16 @@ import { CollaboratorType } from "./types/Collaborator.type";
 function App() {
   const [collaborators, setCollaborators] = useState<CollaboratorType[]>([]);
 
+  const [filteredCollaborators, setFilteredCollaborators] = useState<
+    CollaboratorType[]
+  >([]);
+
   const onNewCollaboratorRegistered = (collaborator: CollaboratorType) => {
-    setCollaborators([...collaborators, collaborator]);
+    const newCollaborators = [...collaborators, collaborator];
+
+    setCollaborators(newCollaborators);
+
+    setFilteredCollaborators(newCollaborators);
   };
 
   const removeCollaborator = (id: string) => {
@@ -23,18 +31,21 @@ function App() {
     );
 
     setCollaborators(newCollaborators);
+
+    setFilteredCollaborators(newCollaborators);
   };
 
   const handleCollaboratorSearch = (result: string) => {
-    const newCollaborators = [...collaborators];
+    if (!result.trim()) {
+      setFilteredCollaborators(collaborators);
+      return;
+    }
 
-    const collaboratorResearched: CollaboratorType[] = newCollaborators.filter(
-      (collaborator) => {
-        return collaborator.collaboratorName === result;
-      }
+    const collaboratorResearched = collaborators.filter((collaborator) =>
+      collaborator.collaboratorName.toLowerCase().includes(result.toLowerCase())
     );
 
-    setCollaborators(collaboratorResearched);
+    setFilteredCollaborators(collaboratorResearched);
   };
 
   return (
@@ -67,7 +78,7 @@ function App() {
           teamName={team.teamName}
           primaryColor={team.primaryColor}
           backgroundColor={team.backgroundColor}
-          collaborators={collaborators.filter(
+          collaborators={filteredCollaborators.filter(
             (collaborator) => collaborator.collaboratorTeam === team.teamName
           )}
           removeCollaborator={removeCollaborator}
