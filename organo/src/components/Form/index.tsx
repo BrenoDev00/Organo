@@ -35,7 +35,7 @@ export const Form = (props: FormProps) => {
   if (!modalContext) throw new Error("modalContext não pode ser nulo.");
 
   return (
-    <section className=" mt-[80px] mb-[80px] flex justify-center ">
+    <section className="flex justify-center ">
       <form
         onSubmit={preventDefault}
         className="relative bg-light-gray shadow-xl w-[800px] text-dark-color py-[32px] px-[80px] flex flex-col  gap-[44px] rounded-[20px]"

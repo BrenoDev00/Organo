@@ -44,27 +44,28 @@ export const Card = (props: CardProps) => {
       </div>
 
       <Modal isOpen={isModalOpen}>
-        <div className="bg-white border-2 border-bg-blue rounded-full p-5">
-          <FaTrashAlt className="fill-bg-blue w-[20px] h-[20px]" />
-        </div>
+        <div className="py-12 px-6 flex flex-col gap-12 w-[500px] items-center">
+          <div className="bg-white border-2 border-bg-blue rounded-full p-5">
+            <FaTrashAlt className="fill-bg-blue w-[20px] h-[20px]" />
+          </div>
 
-        <p className="text-[20px] font-semibold -mt-[20px]">
-          Deseja remover o colaborador?
-        </p>
+          <p className="text-[20px] font-semibold -mt-[20px]">
+            Deseja remover o colaborador?
+          </p>
 
-        <div className="flex gap-[70px]">
-          <Button
-            type="button"
-            title="Remover"
-            onClick={() => props.removeCollaborator(props.collaboratorID)}
-          />
-
-          <Button
-            type="button"
-            title="Cancelar"
-            variant="secondary"
-            onClick={() => setIsModalOpen(!isModalOpen)}
-          />
+          <div className="flex gap-[70px]">
+            <Button
+              type="button"
+              title="Remover"
+              onClick={() => props.removeCollaborator(props.collaboratorID)}
+            />
+            <Button
+              type="button"
+              title="Cancelar"
+              variant="secondary"
+              onClick={() => setIsModalOpen(!isModalOpen)}
+            />
+          </div>
         </div>
       </Modal>
     </>
