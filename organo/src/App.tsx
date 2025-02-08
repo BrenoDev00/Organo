@@ -1,5 +1,9 @@
 import { useState } from "react";
+import { ModalContext } from "./contexts/ModalContext";
 import { Banner } from "./components/Banner";
+import { Button } from "./components/Button";
+import { IoMdAdd } from "react-icons/io";
+import { Modal } from "./components/Modal";
 import { Form } from "./components/Form";
 import { RecordCounter } from "./components/RecordCounter";
 import { SearchBar } from "./components/SearchBar";
@@ -14,6 +18,8 @@ function App() {
   const [filteredCollaborators, setFilteredCollaborators] = useState<
     CollaboratorType[]
   >([]);
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const onNewCollaboratorRegistered = (collaborator: CollaboratorType) => {
     const newCollaborators = [...collaborators, collaborator];
@@ -52,38 +58,53 @@ function App() {
     <>
       <Banner />
 
-      <Form
-        title="Preencha os dados para criar o card do colaborador."
-        teams={teams.map((team) => team.teamName)}
-        onCollaboratorRegistered={(collaborator) =>
-          onNewCollaboratorRegistered(collaborator)
-        }
-      />
-
-      {collaborators.length > 0 && (
-        <>
-          <div className="ml-4 mb-4">
-            <RecordCounter total={collaborators.length} />
-          </div>
-
-          <div className="flex justify-center mb-4 translate-y-[-160%]">
-            <SearchBar onInput={(event) => handleCollaboratorSearch(event)} />
-          </div>
-        </>
-      )}
-
-      {teams.map((team) => (
-        <Team
-          key={team.teamName}
-          teamName={team.teamName}
-          primaryColor={team.primaryColor}
-          backgroundColor={team.backgroundColor}
-          collaborators={filteredCollaborators.filter(
-            (collaborator) => collaborator.collaboratorTeam === team.teamName
-          )}
-          removeCollaborator={removeCollaborator}
+      <div className="flex justify-end mt-6 mr-10">
+        <Button
+          type="button"
+          icon={<IoMdAdd className="h-6 w-6 fill-white" />}
+          title="Novo colaborador"
+          onClick={() => setIsModalOpen(!isModalOpen)}
         />
-      ))}
+      </div>
+
+      <div className="min-h-[500px]">
+        <ModalContext.Provider value={{ isModalOpen, setIsModalOpen }}>
+          <Modal isOpen={isModalOpen}>
+            <Form
+              title="Preencha os dados para criar o card do colaborador."
+              teams={teams.map((team) => team.teamName)}
+              onCollaboratorRegistered={(collaborator) =>
+                onNewCollaboratorRegistered(collaborator)
+              }
+            />
+          </Modal>
+        </ModalContext.Provider>
+
+        {collaborators.length > 0 && (
+          <>
+            <div className="ml-4 mb-4">
+              <RecordCounter total={collaborators.length} />
+            </div>
+
+            <div className="flex justify-center mb-4 translate-y-[-160%]">
+              <SearchBar onInput={(event) => handleCollaboratorSearch(event)} />
+            </div>
+          </>
+        )}
+
+        {teams.map((team) => (
+          <Team
+            key={team.teamName}
+            teamName={team.teamName}
+            primaryColor={team.primaryColor}
+            backgroundColor={team.backgroundColor}
+            collaborators={filteredCollaborators.filter(
+              (collaborator) => collaborator.collaboratorTeam === team.teamName
+            )}
+            removeCollaborator={removeCollaborator}
+          />
+        ))}
+      </div>
 
       <Footer />
     </>

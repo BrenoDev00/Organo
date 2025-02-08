@@ -1,8 +1,11 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useContext } from "react";
+import { ModalContext } from "../../contexts/ModalContext";
 import { TextField } from "../TextField";
 import { Dropdown } from "../Dropdown";
 import { Button } from "../Button";
 import { FormProps } from "../../types/components";
+import { GiCancel } from "react-icons/gi";
+import { ModalContextType } from "../../types/contexts/ModalContext.type";
 
 export const Form = (props: FormProps) => {
   const [collaboratorName, setNameField] = useState<string>("");
@@ -27,12 +30,21 @@ export const Form = (props: FormProps) => {
     setTeamField("");
   };
 
+  const modalContext = useContext<ModalContextType | null>(ModalContext);
+
+  if (!modalContext) throw new Error("modalContext não pode ser nulo.");
+
   return (
     <section className=" mt-[80px] mb-[80px] flex justify-center ">
       <form
         onSubmit={preventDefault}
-        className="bg-light-gray shadow-xl w-[800px] text-dark-color py-[32px] px-[80px] flex flex-col  gap-[44px] rounded-[20px]"
+        className="relative bg-light-gray shadow-xl w-[800px] text-dark-color py-[32px] px-[80px] flex flex-col  gap-[44px] rounded-[20px]"
       >
+        <GiCancel
+          className="absolute right-6 top-4 w-6 h-6 fill-bg-blue cursor-pointer"
+          onClick={() => modalContext.setIsModalOpen(!modalContext.isModalOpen)}
+        />
+
         <h1 className="font-prata text-[25px] ">{props.title}</h1>
 
         <div className="flex flex-col gap-[29px]">
@@ -76,7 +88,19 @@ export const Form = (props: FormProps) => {
           />
 
           <div className="self-start">
-            <Button type="submit" title="Criar card" />
+            <Button
+              type="submit"
+              title="Criar card"
+              onClick={() => {
+                if (
+                  collaboratorName.length > 0 &&
+                  collaboratorPosition.length > 0 &&
+                  collaboratorTeam.length > 0
+                ) {
+                  return modalContext.setIsModalOpen(!modalContext.isModalOpen);
+                }
+              }}
+            />
           </div>
         </div>
       </form>
