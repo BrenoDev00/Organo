@@ -1,4 +1,6 @@
-export const Dropdown = (props) => {
+import { DropdownProps } from "../../types/components";
+
+export const Dropdown = (props: DropdownProps) => {
   return (
     <div className="flex flex-col gap-[8px] font-montserrat">
       <label className="font-semibold text-[16px]" htmlFor={props.for}>

@@ -1,6 +1,7 @@
 import { Card } from "../Card";
+import { TeamProps } from "../../types/components";
 
-export const Team = (props) => {
+export const Team = (props: TeamProps) => {
   return (
     props.collaborators.length > 0 && (
       <section
@@ -8,7 +9,9 @@ export const Team = (props) => {
         style={{ backgroundColor: props.backgroundColor }}
       >
         <div className="flex flex-col gap-[9px] items-center">
-          <h2 className="text-[32px] text-center font-prata ">{props.title}</h2>
+          <h2 className="text-[32px] text-center font-prata ">
+            {props.teamName}
+          </h2>
           <span
             className="w-[32px] h-1"
             style={{ backgroundColor: props.primaryColor }}
@@ -16,13 +19,13 @@ export const Team = (props) => {
         </div>
 
         <div className="flex justify-center flex-wrap gap-[28px]">
-          {props.collaborators.map((collaborator) => (
+          {props.collaborators.map((collaborator: any) => (
             <Card
-              key={collaborator.id}
-              id={collaborator.id}
-              image={collaborator.imageField}
-              name={collaborator.nameField}
-              position={collaborator.positionField}
+              key={collaborator.collaboratorID}
+              collaboratorID={collaborator.collaboratorID}
+              collaboratorImage={collaborator.collaboratorImage}
+              collaboratorName={collaborator.collaboratorName}
+              collaboratorPosition={collaborator.collaboratorPosition}
               backgroundColor={props.primaryColor}
               removeCollaborator={props.removeCollaborator}
             />

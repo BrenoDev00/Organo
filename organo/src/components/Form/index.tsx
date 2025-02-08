@@ -1,23 +1,24 @@
+import { FormEvent, useState } from "react";
 import { TextField } from "../TextField";
 import { Dropdown } from "../Dropdown";
 import { Button } from "../Button";
-import { useState } from "react";
+import { FormProps } from "../../types/components";
 
-export const Form = (props) => {
-  const [nameField, setNameField] = useState("");
-  const [positionField, setPositionField] = useState("");
-  const [imageField, setImageField] = useState("");
-  const [teamField, setTeamField] = useState("");
+export const Form = (props: FormProps) => {
+  const [collaboratorName, setNameField] = useState<string>("");
+  const [collaboratorPosition, setPositionField] = useState<string>("");
+  const [collaboratorImage, setImageField] = useState<string>("");
+  const [collaboratorTeam, setTeamField] = useState<string>("");
 
-  const preventDefault = (event) => {
+  const preventDefault = (event: FormEvent) => {
     event.preventDefault();
 
     props.onCollaboratorRegistered({
-      id: Date.now(),
-      nameField,
-      positionField,
-      imageField,
-      teamField,
+      collaboratorID: String(Date.now()),
+      collaboratorName,
+      collaboratorPosition,
+      collaboratorImage,
+      collaboratorTeam,
     });
 
     setNameField("");
@@ -41,7 +42,7 @@ export const Form = (props) => {
             for="nome"
             type="text"
             placeholder="Digite seu nome"
-            value={nameField}
+            value={collaboratorName}
             onInput={(event) => setNameField(event)}
           />
 
@@ -51,7 +52,7 @@ export const Form = (props) => {
             for="cargo"
             type="text"
             placeholder="Digite seu cargo"
-            value={positionField}
+            value={collaboratorPosition}
             onInput={(event) => setPositionField(event)}
           />
 
@@ -61,7 +62,7 @@ export const Form = (props) => {
             for="imagem"
             type="text"
             placeholder="Imagem da web (ex.: https://github.com/nome do perfil.png)"
-            value={imageField}
+            value={collaboratorImage}
             onInput={(event) => setImageField(event)}
           />
 
@@ -70,7 +71,7 @@ export const Form = (props) => {
             teams={props.teams}
             label="Time"
             for="time"
-            value={teamField}
+            value={collaboratorTeam}
             onChange={(event) => setTeamField(event)}
           />
 
