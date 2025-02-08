@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { Modal } from "../Modal";
+import { Button } from "../Button";
 import { CardProps } from "../../types/components";
 
 export const Card = (props: CardProps) => {
@@ -42,15 +43,30 @@ export const Card = (props: CardProps) => {
         </article>
       </div>
 
-      <Modal
-        icon={<FaTrashAlt className="fill-bg-blue w-[20px] h-[20px]" />}
-        message="Deseja remover o colaborador?"
-        primaryButtonMessage="Remover"
-        secondaryButtonMessage="Cancelar"
-        isOpen={isModalOpen}
-        isClose={setIsModalOpen}
-        handleModalType={() => props.removeCollaborator(props.collaboratorID)}
-      ></Modal>
+      <Modal isOpen={isModalOpen}>
+        <div className="bg-white border-2 border-bg-blue rounded-full p-5">
+          <FaTrashAlt className="fill-bg-blue w-[20px] h-[20px]" />
+        </div>
+
+        <p className="text-[20px] font-semibold -mt-[20px]">
+          Deseja remover o colaborador?
+        </p>
+
+        <div className="flex gap-[70px]">
+          <Button
+            type="button"
+            title="Remover"
+            onClick={() => props.removeCollaborator(props.collaboratorID)}
+          />
+
+          <Button
+            type="button"
+            title="Cancelar"
+            variant="secondary"
+            onClick={() => setIsModalOpen(!isModalOpen)}
+          />
+        </div>
+      </Modal>
     </>
   );
 };
