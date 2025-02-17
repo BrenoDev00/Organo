@@ -7,6 +7,8 @@ import { Modal } from "./components/Modal";
 import { Form } from "./components/Form";
 import { RecordCounter } from "./components/RecordCounter";
 import { SearchBar } from "./components/SearchBar";
+import { IsEmptyListing } from "./components/IsEmptyListing";
+import { MdGroups } from "react-icons/md";
 import { Team } from "./components/Team";
 import { Footer } from "./components/Footer";
 import { teams } from "./utils/teams";
@@ -67,7 +69,7 @@ function App() {
         />
       </div>
 
-      <div className="min-h-[500px]">
+      <div className="min-h-[400px]">
         <ModalContext.Provider value={{ isModalOpen, setIsModalOpen }}>
           <Modal isOpen={isModalOpen}>
             <Form
@@ -80,7 +82,7 @@ function App() {
           </Modal>
         </ModalContext.Provider>
 
-        {collaborators.length > 0 && (
+        {collaborators.length > 0 ? (
           <>
             <div className="ml-4 mb-4">
               <RecordCounter total={collaborators.length} />
@@ -90,6 +92,13 @@ function App() {
               <SearchBar onInput={(event) => handleCollaboratorSearch(event)} />
             </div>
           </>
+        ) : (
+          <div className="mt-6">
+            <IsEmptyListing
+              icon={<MdGroups className="fill-bg-blue w-[90px] h-[90px]" />}
+              message={`Aperte o botão "Novo colaborador" para cadastrar um novo colaborador.`}
+            />
+          </div>
         )}
 
         {teams.map((team) => (
