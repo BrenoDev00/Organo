@@ -1,44 +1,39 @@
-import { FormEvent, useState, useContext } from "react";
+import { useContext } from "react";
 import { ModalContext } from "../../contexts/ModalContext";
+import { useForm } from "react-hook-form";
 import { TextField } from "../TextField";
 import { Dropdown } from "../Dropdown";
 import { Button } from "../Button";
 import { FormProps } from "../../types/components";
 import { GiCancel } from "react-icons/gi";
+import { CollaboratorType } from "../../types/Collaborator.type";
 import { ModalContextType } from "../../types/contexts/ModalContext.type";
 import { teams } from "../../utils/teams";
 
 export const Form = (props: FormProps) => {
-  const [collaboratorName, setNameField] = useState<string>("");
-  const [collaboratorPosition, setPositionField] = useState<string>("");
-  const [collaboratorImage, setImageField] = useState<string>("");
-  const [collaboratorTeam, setTeamField] = useState<string>("");
-
-  const preventDefault = (event: FormEvent) => {
-    event.preventDefault();
-
-    props.onCollaboratorRegistered({
-      collaboratorID: String(Date.now()),
-      collaboratorName,
-      collaboratorPosition,
-      collaboratorImage,
-      collaboratorTeam,
-    });
-
-    setNameField("");
-    setPositionField("");
-    setImageField("");
-    setTeamField("");
-  };
-
   const modalContext = useContext<ModalContextType | null>(ModalContext);
 
   if (!modalContext) throw new Error("modalContext não pode ser nulo.");
 
+  const { register, handleSubmit, reset } = useForm<CollaboratorType>();
+
+  const submitForm = (data: CollaboratorType) => {
+    const collaborators = {
+      ...data,
+      collaboratorID: String(Date.now()),
+    };
+
+    props.onCollaboratorRegistered(collaborators);
+
+    modalContext.setIsModalOpen(!modalContext.isModalOpen);
+
+    reset();
+  };
+
   return (
     <section className="flex justify-center ">
       <form
-        onSubmit={preventDefault}
+        onSubmit={handleSubmit(submitForm)}
         className="relative bg-light-gray shadow-xl w-[800px] text-dark-color py-[32px] px-[80px] flex flex-col  gap-[44px] rounded-[20px]"
       >
         <GiCancel
@@ -55,8 +50,9 @@ export const Form = (props: FormProps) => {
             for="nome"
             type="text"
             placeholder="Digite seu nome"
-            value={collaboratorName}
-            onInput={(event) => setNameField(event)}
+            register={register("collaboratorName", {
+              required: "Campo obrigatório",
+            })}
           />
 
           <TextField
@@ -65,8 +61,9 @@ export const Form = (props: FormProps) => {
             for="cargo"
             type="text"
             placeholder="Digite seu cargo"
-            value={collaboratorPosition}
-            onInput={(event) => setPositionField(event)}
+            register={register("collaboratorPosition", {
+              required: "Campo obrigatório",
+            })}
           />
 
           <TextField
@@ -75,8 +72,7 @@ export const Form = (props: FormProps) => {
             for="imagem"
             type="text"
             placeholder="Imagem da web (ex.: https://github.com/nome do perfil.png)"
-            value={collaboratorImage}
-            onInput={(event) => setImageField(event)}
+            register={register("collaboratorImage")}
           />
 
           <Dropdown
@@ -84,24 +80,13 @@ export const Form = (props: FormProps) => {
             options={teams}
             label="Time"
             for="time"
-            value={collaboratorTeam}
-            onChange={(event) => setTeamField(event)}
+            register={register("collaboratorTeam", {
+              required: "Campo obrigatório",
+            })}
           />
 
           <div className="self-start">
-            <Button
-              type="submit"
-              title="Criar card"
-              onClick={() => {
-                if (
-                  collaboratorName.length > 0 &&
-                  collaboratorPosition.length > 0 &&
-                  collaboratorTeam.length > 0
-                ) {
-                  return modalContext.setIsModalOpen(!modalContext.isModalOpen);
-                }
-              }}
-            />
+            <Button type="submit" title="Criar card" />
           </div>
         </div>
       </form>
