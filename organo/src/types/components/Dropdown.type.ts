@@ -4,5 +4,5 @@ export interface DropdownProps {
   value: string;
   onChange: (event: string) => void;
   for: string;
-  teams: string[];
+  options: object[] | string[];
 }

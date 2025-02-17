@@ -74,7 +74,6 @@ function App() {
           <Modal isOpen={isModalOpen}>
             <Form
               title="Preencha os dados para criar o card do colaborador."
-              teams={teams.map((team) => team.teamName)}
               onCollaboratorRegistered={(collaborator) =>
                 onNewCollaboratorRegistered(collaborator)
               }

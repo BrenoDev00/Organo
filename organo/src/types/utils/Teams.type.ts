@@ -1,5 +1,5 @@
 export interface TeamsType {
-  teamName: string;
-  primaryColor: string;
-  backgroundColor: string;
+  teamName?: string;
+  primaryColor?: string;
+  backgroundColor?: string;
 }

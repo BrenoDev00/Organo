@@ -6,6 +6,7 @@ import { Button } from "../Button";
 import { FormProps } from "../../types/components";
 import { GiCancel } from "react-icons/gi";
 import { ModalContextType } from "../../types/contexts/ModalContext.type";
+import { teams } from "../../utils/teams";
 
 export const Form = (props: FormProps) => {
   const [collaboratorName, setNameField] = useState<string>("");
@@ -80,7 +81,7 @@ export const Form = (props: FormProps) => {
 
           <Dropdown
             required={true}
-            teams={props.teams}
+            options={teams}
             label="Time"
             for="time"
             value={collaboratorTeam}

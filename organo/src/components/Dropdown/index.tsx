@@ -1,4 +1,6 @@
 import { DropdownProps } from "../../types/components";
+import { TeamsType } from "../../types/utils/Teams.type";
+
 
 export const Dropdown = (props: DropdownProps) => {
   return (
@@ -16,8 +18,8 @@ export const Dropdown = (props: DropdownProps) => {
       >
         <option value="">Escolha um time</option>
 
-        {props.teams.map((team) => {
-          return <option key={team}>{team}</option>;
+        {props.options.map((option: TeamsType) => {
+          return <option key={option.teamName}>{option.teamName}</option>;
         })}
       </select>
     </div>
