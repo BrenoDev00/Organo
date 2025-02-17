@@ -11,7 +11,6 @@ export const TextField = (props: TextFieldProps) => {
         className="py-[20px] px-[15px] focus:outline-none shadow-md"
         type={props.type}
         placeholder={props.placeholder}
-        required={props.required}
         id={props.for}
         {...props.register}
       />

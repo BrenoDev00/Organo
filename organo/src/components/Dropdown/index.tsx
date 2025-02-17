@@ -9,7 +9,6 @@ export const Dropdown = (props: DropdownProps) => {
       </label>
 
       <select
-        required={props.required}
         className="py-[20px] px-[15px] focus:outline-none shadow-md"
         id={props.for}
         {...props.register}

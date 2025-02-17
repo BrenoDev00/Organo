@@ -5,6 +5,5 @@ export interface TextFieldProps {
   label: string;
   type: string;
   placeholder: string;
-  required: boolean;
   register: UseFormRegisterReturn;
 }

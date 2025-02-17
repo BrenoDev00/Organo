@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ModalContext } from "../../contexts/ModalContext";
 import { useForm } from "react-hook-form";
 import { TextField } from "../TextField";
+import { ErrorMessage } from "../ErrorMessage";
 import { Dropdown } from "../Dropdown";
 import { Button } from "../Button";
 import { FormProps } from "../../types/components";
@@ -15,7 +16,12 @@ export const Form = (props: FormProps) => {
 
   if (!modalContext) throw new Error("modalContext não pode ser nulo.");
 
-  const { register, handleSubmit, reset } = useForm<CollaboratorType>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<CollaboratorType>();
 
   const submitForm = (data: CollaboratorType) => {
     const collaborators = {
@@ -44,30 +50,43 @@ export const Form = (props: FormProps) => {
         <h1 className="font-prata text-[25px] ">{props.title}</h1>
 
         <div className="flex flex-col gap-[29px]">
-          <TextField
-            required={true}
-            label="Nome"
-            for="nome"
-            type="text"
-            placeholder="Digite seu nome"
-            register={register("collaboratorName", {
-              required: "Campo obrigatório",
-            })}
-          />
+          <div className="flex flex-col gap-2">
+            <TextField
+              label="Nome"
+              for="nome"
+              type="text"
+              placeholder="Digite seu nome"
+              register={register("collaboratorName", {
+                required: "Campo obrigatório",
+                minLength: {
+                  value: 3,
+                  message: "Mínimo 3 caracteres",
+                },
+              })}
+            />
+
+            {errors.collaboratorName && (
+              <ErrorMessage message={errors.collaboratorName.message} />
+            )}
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <TextField
+              label="Cargo"
+              for="cargo"
+              type="text"
+              placeholder="Digite seu cargo"
+              register={register("collaboratorPosition", {
+                required: "Campo obrigatório",
+              })}
+            />
+
+            {errors.collaboratorPosition && (
+              <ErrorMessage message={errors.collaboratorPosition.message} />
+            )}
+          </div>
 
           <TextField
-            required={true}
-            label="Cargo"
-            for="cargo"
-            type="text"
-            placeholder="Digite seu cargo"
-            register={register("collaboratorPosition", {
-              required: "Campo obrigatório",
-            })}
-          />
-
-          <TextField
-            required={false}
             label="Imagem"
             for="imagem"
             type="text"
@@ -75,15 +94,20 @@ export const Form = (props: FormProps) => {
             register={register("collaboratorImage")}
           />
 
-          <Dropdown
-            required={true}
-            options={teams}
-            label="Time"
-            for="time"
-            register={register("collaboratorTeam", {
-              required: "Campo obrigatório",
-            })}
-          />
+          <div className="flex flex-col gap-2">
+            <Dropdown
+              options={teams}
+              label="Time"
+              for="time"
+              register={register("collaboratorTeam", {
+                required: "Campo obrigatório",
+              })}
+            />
+
+            {errors.collaboratorTeam && (
+              <ErrorMessage message={errors.collaboratorTeam.message} />
+            )}
+          </div>
 
           <div className="self-start">
             <Button type="submit" title="Criar card" />
