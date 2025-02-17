@@ -8,7 +8,7 @@
 - Contador de registro de colaboradores cadastrados;
 - Pesquisa de colaboradores por nome.
 ## Tecnologias utilizadas
-- React.JS: criação e reutilização de componentes e utilização do hook useState;
+- React.JS: criação e reutilização de componentes e utilização dos hooks useState, createContext e useContext;
 - React Icons: pacote de ícones;
 - Tailwind CSS: utilização de classes utilitárias e personalização de tema com variáveis;
 - TypeScript: inicialmente a aplicação foi desenvolvida com JavaScript e depois migrada para TypeScript;
