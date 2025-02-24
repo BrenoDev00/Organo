@@ -51,7 +51,7 @@ export const Form = (props: FormProps) => {
           {props.title}
         </h1>
 
-        <div className="flex flex-col gap-[29px]">
+        <div className="flex flex-col xl:gap-[29px] md:gap-[20px]">
           <div className="flex flex-col gap-2">
             <TextField
               label="Nome"
