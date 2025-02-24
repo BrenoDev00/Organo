@@ -13,6 +13,9 @@ export default {
         prata: ["Prata", "serif"],
         montserrat: ["Montserrat", "sans-serif"],
       },
+      screens: {
+        "h-sm": { raw: "(max-height: 600px)" },
+      },
     },
   },
   plugins: [],
