@@ -9,7 +9,7 @@ export const Dropdown = (props: DropdownProps) => {
       </label>
 
       <select
-        className="xl:py-[20px] md:py-[15px] xl:px-[15px] md:px-[10px] focus:outline-none shadow-md"
+        className="2xl:py-[20px] md:py-[15px] 2xl:px-[15px] md:px-[10px] focus:outline-none shadow-md"
         id={props.for}
         {...props.register}
       >

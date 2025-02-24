@@ -40,18 +40,18 @@ export const Form = (props: FormProps) => {
     <section className="flex justify-center ">
       <form
         onSubmit={handleSubmit(submitForm)}
-        className="relative bg-light-gray shadow-xl xl:w-[800px] md:w-[700px] text-dark-color xl:py-[32px] md:py-[26px] xl:px-[80px] md:px-[74px] flex flex-col xl:gap-[44px] md:gap-[40px] rounded-[20px]"
+        className="relative bg-light-gray shadow-2xl 2xl:w-[800px] md:w-[700px] text-dark-color 2xl:py-[32px] md:py-[26px] 2xl:px-[80px] md:px-[74px] flex flex-col 2xl:gap-[44px] md:gap-[40px] rounded-[20px]"
       >
         <GiCancel
           className="absolute right-6 top-4 w-6 h-6 fill-bg-blue cursor-pointer"
           onClick={() => modalContext.setIsModalOpen(!modalContext.isModalOpen)}
         />
 
-        <h1 className="font-prata xl:text-[25px] md:text-[22px] ">
+        <h1 className="font-prata 2xl:text-[25px] md:text-[22px] ">
           {props.title}
         </h1>
 
-        <div className="flex flex-col xl:gap-[29px] md:gap-[20px]">
+        <div className="flex flex-col 2xl:gap-[29px] md:gap-[20px]">
           <div className="flex flex-col gap-2">
             <TextField
               label="Nome"
