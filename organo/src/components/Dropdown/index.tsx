@@ -4,12 +4,12 @@ import { TeamsType } from "../../types/utils/Teams.type";
 export const Dropdown = (props: DropdownProps) => {
   return (
     <div className="flex flex-col gap-[8px] font-montserrat">
-      <label className="font-semibold text-[16px]" htmlFor={props.for}>
+      <label className="font-semibold text-base" htmlFor={props.for}>
         {props.label}
       </label>
 
       <select
-        className="py-[20px] px-[15px] focus:outline-none shadow-md"
+        className="xl:py-[20px] md:py-[15px] xl:px-[15px] md:px-[10px] focus:outline-none shadow-md"
         id={props.for}
         {...props.register}
       >

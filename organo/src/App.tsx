@@ -94,7 +94,9 @@ function App() {
         ) : (
           <div className="mt-6">
             <IsEmptyListing
-              icon={<MdGroups className="fill-bg-blue w-[90px] h-[90px]" />}
+              icon={
+                <MdGroups className="fill-bg-blue xl:w-[90px] xl:h-[90px] md:w-[80px] md:h-[80px]" />
+              }
               message={`Aperte o botão "Novo colaborador" para cadastrar um novo colaborador.`}
             />
           </div>

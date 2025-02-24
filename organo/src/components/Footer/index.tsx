@@ -4,13 +4,15 @@ export const Footer = () => {
       <footer className="bg-bg-blue flex items-center p-[20px] gap-[20px] justify-center">
         <div>
           <img
-            className="w-[150px]"
+            className="xl:w-[150px] md:w-[120px]"
             src="/images/logo.png"
             alt="Logo do Organo."
           />
         </div>
 
-        <p className="text-white text-lg">Desenvolvido por Breno.</p>
+        <p className="text-white xl:text-lg md:text-base">
+          Desenvolvido por Breno.
+        </p>
       </footer>
     </>
   );
