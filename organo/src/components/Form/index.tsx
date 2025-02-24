@@ -40,7 +40,7 @@ export const Form = (props: FormProps) => {
     <section className="flex justify-center ">
       <form
         onSubmit={handleSubmit(submitForm)}
-        className="relative bg-light-gray h-sm:h-[450px] overflow-y-scroll shadow-2xl 2xl:w-[800px] md:w-[700px] text-dark-color 2xl:py-[32px] md:py-[26px] 2xl:px-[80px] md:px-[74px] flex flex-col 2xl:gap-[44px] md:gap-[40px] rounded-[20px]"
+        className="relative bg-light-gray h-sm:h-[450px] h-sm:overflow-y-scroll shadow-2xl 2xl:w-[800px] md:w-[700px] text-dark-color 2xl:py-[32px] md:py-[26px] 2xl:px-[80px] md:px-[74px] flex flex-col 2xl:gap-[44px] md:gap-[40px] rounded-[20px]"
       >
         <GiCancel
           className="absolute right-6 top-4 w-6 h-6 fill-bg-blue cursor-pointer"
