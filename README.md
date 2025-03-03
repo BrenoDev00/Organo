@@ -1,8 +1,8 @@
-# Organo - cadastro de colaboradores em times de tecnologia
+# Organo - sistema de gerenciamento de colaboradores em times de tecnologia
 ## Link da aplicação: https://frolicking-concha-8a62eb.netlify.app/
 ![Organo app](./organo/public/images/organo.png)
 ## Descrição
-- Aplicação React de cadastro de colaboradores em diferentes times de tecnologia no formato de organograma;
+- Aplicação React para gerenciar colaboradores em diferentes times de tecnologia no formato de organograma;
 ## Funcionalidades
 - Cadastrar, listar e remover colaboradores;
 - Contador de registro de colaboradores cadastrados;
