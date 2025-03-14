@@ -12,6 +12,7 @@
 - React Icons: pacote de ícones;
 - Tailwind CSS: utilização de classes utilitárias e personalização de tema com variáveis;
 - TypeScript: inicialmente a aplicação foi desenvolvida com JavaScript e depois migrada para TypeScript;
+- Cypress: teste E2E de jornada de usuário;
 - Vite: ferramenta de build e servidor de desenvolvimento;
 - ESLint e Prettier: formatação e estilo de código.
 ## Como rodar a aplicação
