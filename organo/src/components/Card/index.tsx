@@ -12,6 +12,7 @@ export const Card = (props: CardProps) => {
       <div className="flex flex-col gap-2">
         <div className="self-center">
           <FaTrashAlt
+            data-test="remove-collaborator-button"
             className="w-[20px] cursor-pointer"
             style={{ fill: props.backgroundColor }}
             onClick={() => {
@@ -46,7 +47,7 @@ export const Card = (props: CardProps) => {
         </article>
       </div>
 
-      <Modal isOpen={isModalOpen}>
+      <Modal dataTest="remove-collaborator-modal" isOpen={isModalOpen}>
         <div className="py-12 px-6 flex flex-col gap-12 w-[500px] items-center">
           <div className="bg-white border-2 border-bg-blue rounded-full p-5">
             <FaTrashAlt className="fill-bg-blue w-[20px] h-[20px]" />

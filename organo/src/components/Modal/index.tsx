@@ -10,6 +10,7 @@ export const Modal = (props: ModalProps) => {
       } flex z-10 bg-transparent backdrop-blur-md h-screen w-screen fixed top-0 bottom-0 left-0 right-0 justify-center items-center transition-opacity `}
     >
       <dialog
+        data-test={props.dataTest}
         className={`bg-light-gray flex items-center rounded-[20px] shadow-xl`}
       >
         {props.children}

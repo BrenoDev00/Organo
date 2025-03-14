@@ -121,4 +121,49 @@ describe("Teste de jornada de usuário", () => {
 
     cy.getByDataTest("search-bar").clear();
   });
+
+  it("Deve permitir excluir colaboradores", () => {
+    cy.getByDataTest("register-collaborator-button").click();
+
+    cy.getByDataTest("register-collaborator-form")
+      .should("exist")
+      .find("h1")
+      .contains("Preencha os dados para criar o card do colaborador.");
+
+    cy.getByDataTest("name-field").type("Breno Silva Gonçalves");
+    cy.getByDataTest("position-field").type("Desenvolvedor Front-end");
+    cy.getByDataTest("image-field").type("https://github.com/BrenoDev00.png");
+    cy.getByDataTest("team-options").select("Front-End");
+    cy.getByDataTest("register-collaborator-form-submit-button").click();
+
+    cy.getByDataTest("register-collaborator-button").click();
+
+    cy.getByDataTest("register-collaborator-form")
+      .should("exist")
+      .find("h1")
+      .contains("Preencha os dados para criar o card do colaborador.");
+
+    cy.getByDataTest("name-field").type("Pedro Henrique");
+    cy.getByDataTest("position-field").type("UX Designer");
+    cy.getByDataTest("team-options").select("UX e Design");
+    cy.getByDataTest("register-collaborator-form-submit-button").click();
+
+    cy.getByDataTest("remove-collaborator-button").first().click();
+
+    cy.getByDataTest("remove-collaborator-modal")
+      .should("exist")
+      .find("p")
+      .contains("Deseja remover o colaborador?");
+    cy.getByDataTest("remove-collaborator-modal")
+      .find("button")
+      .first()
+      .click();
+
+    cy.getByDataTest("remove-collaborator-button").first().click();
+
+    cy.getByDataTest("remove-collaborator-modal")
+      .find("button")
+      .first()
+      .click();
+  });
 });
