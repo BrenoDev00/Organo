@@ -39,6 +39,7 @@ export const Form = (props: FormProps) => {
   return (
     <section className="flex justify-center ">
       <form
+        data-test={props.dataTest}
         onSubmit={handleSubmit(submitForm)}
         className="relative bg-light-gray h-sm:h-[450px] h-sm:overflow-y-scroll shadow-2xl 2xl:w-[800px] md:w-[700px] text-dark-color 2xl:py-[32px] md:py-[26px] 2xl:px-[80px] md:px-[74px] flex flex-col 2xl:gap-[44px] md:gap-[40px] rounded-[20px]"
       >
@@ -54,6 +55,7 @@ export const Form = (props: FormProps) => {
         <div className="flex flex-col 2xl:gap-[29px] md:gap-[20px]">
           <div className="flex flex-col gap-2">
             <TextField
+              dataTest="name-field"
               label="Nome"
               for="nome"
               type="text"
@@ -74,6 +76,7 @@ export const Form = (props: FormProps) => {
 
           <div className="flex flex-col gap-2">
             <TextField
+              dataTest="position-field"
               label="Cargo"
               for="cargo"
               type="text"
@@ -89,6 +92,7 @@ export const Form = (props: FormProps) => {
           </div>
 
           <TextField
+            dataTest="image-field"
             label="Imagem"
             for="imagem"
             type="text"
@@ -98,6 +102,7 @@ export const Form = (props: FormProps) => {
 
           <div className="flex flex-col gap-2">
             <Dropdown
+              dataTest="team-options"
               options={teams}
               label="Time"
               for="time"
@@ -112,7 +117,11 @@ export const Form = (props: FormProps) => {
           </div>
 
           <div className="self-start">
-            <Button type="submit" title="Criar card" />
+            <Button
+              dataTest="register-collaborator-form-submit-button"
+              type="submit"
+              title="Criar card"
+            />
           </div>
         </div>
       </form>

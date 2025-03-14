@@ -6,4 +6,5 @@ export interface ButtonProps {
   icon?: ReactNode;
   type: "submit" | "reset" | "button";
   title: string;
+  dataTest?: string;
 }

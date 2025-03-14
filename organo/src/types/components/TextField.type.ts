@@ -6,4 +6,5 @@ export interface TextFieldProps {
   type: string;
   placeholder: string;
   register: UseFormRegisterReturn;
+  dataTest?: string;
 }

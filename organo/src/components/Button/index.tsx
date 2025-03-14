@@ -3,6 +3,7 @@ import { ButtonProps } from "../../types/components";
 export const Button = (props: ButtonProps) => {
   return (
     <button
+      data-test={props.dataTest}
       onClick={props.onClick}
       className={`${
         props.variant === "secondary"

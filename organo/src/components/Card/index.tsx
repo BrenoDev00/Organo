@@ -22,7 +22,10 @@ export const Card = (props: CardProps) => {
 
         <div className="hidden">{props.collaboratorID}</div>
 
-        <article className="flex flex-col w-[262px] shadow-lg rounded-[10px] bg-white">
+        <article
+          data-test="collaborator-card"
+          className="flex flex-col w-[262px] shadow-lg rounded-[10px] bg-white"
+        >
           <div
             className="flex justify-center h-[90px] w-full rounded-tl-[10px] rounded-tr-[10px]"
             style={{ backgroundColor: props.backgroundColor }}

@@ -62,6 +62,7 @@ function App() {
 
       <div className="flex justify-end mt-6 mr-10">
         <Button
+          dataTest="register-collaborator-button"
           type="button"
           icon={<IoMdAdd className="h-6 w-6 fill-white" />}
           title="Novo colaborador"
@@ -73,6 +74,7 @@ function App() {
         <ModalContext.Provider value={{ isModalOpen, setIsModalOpen }}>
           <Modal isOpen={isModalOpen}>
             <Form
+              dataTest="register-collaborator-form"
               title="Preencha os dados para criar o card do colaborador."
               onCollaboratorRegistered={(collaborator) =>
                 onNewCollaboratorRegistered(collaborator)
@@ -84,7 +86,10 @@ function App() {
         {collaborators.length > 0 ? (
           <>
             <div className="ml-4 mb-4">
-              <RecordCounter total={collaborators.length} />
+              <RecordCounter
+                dataTest="collaborator-record-count"
+                total={collaborators.length}
+              />
             </div>
 
             <div className="flex justify-center mb-4 translate-y-[-160%]">
@@ -94,6 +99,7 @@ function App() {
         ) : (
           <div className="mt-6">
             <IsEmptyListing
+              dataTest="empty-collaborators-list"
               icon={
                 <MdGroups className="fill-bg-blue 2xl:w-[90px] 2xl:h-[90px] md:w-[80px] md:h-[80px]" />
               }

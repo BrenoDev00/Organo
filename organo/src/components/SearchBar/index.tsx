@@ -5,6 +5,7 @@ export const SearchBar = (props: SearchBarProps) => {
   return (
     <div className="relative">
       <input
+        data-test="search-bar"
         type="text"
         placeholder="Pesquisar colaborador"
         className="text-lg text-dark-color outline-none border-b-2 border-bg-blue w-[323px] pl-8"

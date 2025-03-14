@@ -5,4 +5,5 @@ export interface DropdownProps {
   for: string;
   options: object[] | string[];
   register: UseFormRegisterReturn;
+  dataTest?: string;
 }
