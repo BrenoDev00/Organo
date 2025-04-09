@@ -1,7 +1,4 @@
-export interface CollaboratorType {
-  collaboratorID: string;
-  collaboratorName: string;
-  collaboratorPosition: string;
-  collaboratorImage: string;
-  collaboratorTeam?: string;
-}
+import { z } from "zod";
+import { collaboratorSchema } from "../schemas/collaborator-schema";
+
+export type CollaboratorType = z.infer<typeof collaboratorSchema>;
