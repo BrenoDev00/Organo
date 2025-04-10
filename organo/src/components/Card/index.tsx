@@ -61,7 +61,7 @@ export const Card = (props: CardProps) => {
             <Button
               type="button"
               title="Remover"
-              onClick={() => props.removeCollaborator(props.collaboratorID)}
+              onClick={() => props.removeCollaborator(props.collaboratorID!)}
             />
             <Button
               type="button"

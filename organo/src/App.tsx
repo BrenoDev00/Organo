@@ -110,10 +110,7 @@ function App() {
 
         {teams.map((team) => (
           <Team
-            key={team.teamName}
-            teamName={team.teamName}
-            primaryColor={team.primaryColor}
-            backgroundColor={team.backgroundColor}
+            {...team}
             collaborators={filteredCollaborators.filter(
               (collaborator) => collaborator.collaboratorTeam === team.teamName
             )}

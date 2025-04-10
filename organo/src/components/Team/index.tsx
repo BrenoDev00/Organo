@@ -22,10 +22,7 @@ export const Team = (props: TeamProps) => {
           {props.collaborators.map((collaborator: any) => (
             <Card
               key={collaborator.collaboratorID}
-              collaboratorID={collaborator.collaboratorID}
-              collaboratorImage={collaborator.collaboratorImage}
-              collaboratorName={collaborator.collaboratorName}
-              collaboratorPosition={collaborator.collaboratorPosition}
+              {...collaborator}
               backgroundColor={props.primaryColor}
               removeCollaborator={props.removeCollaborator}
             />
