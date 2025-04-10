@@ -10,6 +10,9 @@ import { GiCancel } from "react-icons/gi";
 import { CollaboratorType } from "../../types/Collaborator.type";
 import { ModalContextType } from "../../types/contexts/ModalContext.type";
 import { teams } from "../../utils/teams";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { collaboratorSchema } from "../../schemas/collaborator-schema";
+import { v4 as uuidv4 } from "uuid";
 
 export const Form = (props: FormProps) => {
   const modalContext = useContext<ModalContextType | null>(ModalContext);
@@ -21,12 +24,14 @@ export const Form = (props: FormProps) => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<CollaboratorType>();
+  } = useForm<CollaboratorType>({
+    resolver: zodResolver(collaboratorSchema),
+  });
 
   const submitForm = (data: CollaboratorType) => {
     const collaborators = {
       ...data,
-      collaboratorID: String(Date.now()),
+      collaboratorID: uuidv4(),
     };
 
     props.onCollaboratorRegistered(collaborators);
@@ -40,7 +45,9 @@ export const Form = (props: FormProps) => {
     <section className="flex justify-center ">
       <form
         data-test={props.dataTest}
-        onSubmit={handleSubmit(submitForm)}
+        onSubmit={handleSubmit(submitForm, (formErrors) =>
+          console.error("Erros no formulário:", formErrors)
+        )}
         className="relative bg-light-gray h-sm:h-[450px] h-sm:overflow-y-scroll shadow-2xl 2xl:w-[800px] md:w-[700px] text-dark-color 2xl:py-[32px] md:py-[26px] 2xl:px-[80px] md:px-[74px] flex flex-col 2xl:gap-[44px] md:gap-[40px] rounded-[20px]"
       >
         <GiCancel
@@ -60,13 +67,7 @@ export const Form = (props: FormProps) => {
               for="nome"
               type="text"
               placeholder="Digite seu nome"
-              register={register("collaboratorName", {
-                required: "Campo obrigatório",
-                minLength: {
-                  value: 3,
-                  message: "Mínimo 3 caracteres",
-                },
-              })}
+              register={register("collaboratorName")}
             />
 
             {errors.collaboratorName && (
@@ -81,9 +82,7 @@ export const Form = (props: FormProps) => {
               for="cargo"
               type="text"
               placeholder="Digite seu cargo"
-              register={register("collaboratorPosition", {
-                required: "Campo obrigatório",
-              })}
+              register={register("collaboratorPosition")}
             />
 
             {errors.collaboratorPosition && (
@@ -106,9 +105,7 @@ export const Form = (props: FormProps) => {
               options={teams}
               label="Time"
               for="time"
-              register={register("collaboratorTeam", {
-                required: "Campo obrigatório",
-              })}
+              register={register("collaboratorTeam")}
             />
 
             {errors.collaboratorTeam && (
